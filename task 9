@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+
+{
+    int x, y;
+    while (1)
+    {
+        printf("Enter x and y (x must be lower then y):");
+        scanf("%d %d", &x, &y); // зчитування x та y з клавіатури
+
+            if (0 > x || 0 > y || x > pow(2, 31) || y > pow(2, 31) || x > y)
+        {
+            printf("Inappropriate numbers");
+            continue;
+        }
+
+        int step = 0;
+        while (x < y)
+
+        {
+            if (y - x <= 2)
+            {
+                x += 1;
+            }
+            else if ((y - x) % 2 == 0)
+            {
+                x += 2;
+            }
+            else
+            {
+                x += 1;
+            }
+            step++;
+        }
+        printf("Minimum amount of steps = %d", step); // виведення результату
+        break;
+    }
+
+    return 0;
+}
